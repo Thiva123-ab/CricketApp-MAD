@@ -143,9 +143,8 @@ class _CricketGameScreenState extends State<CricketGameScreen> {
     return Container(
       width: 130,
       height: 130,
-      decoration: const BoxDecoration(
-        color: Colors.white,
-      ),
+      color: Colors.white,
+      padding: const EdgeInsets.all(12.0),
       child: Image.asset(
         imagePath,
         fit: BoxFit.contain,
