@@ -52,8 +52,8 @@ class _CricketGameScreenState extends State<CricketGameScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                _buildImagePlaceholder(Icons.sports_cricket, 'Bat'),
-                _buildImagePlaceholder(Icons.sports_baseball, 'Ball'), // Using baseball as a generic ball icon
+                _buildImageBox('asset/bat.png'),
+                _buildImageBox('asset/ball.png'),
               ],
             ),
             const SizedBox(height: 40),
@@ -138,24 +138,17 @@ class _CricketGameScreenState extends State<CricketGameScreen> {
     );
   }
 
-  // A helper method to create image placeholders since we don't have local assets yet
-  Widget _buildImagePlaceholder(IconData icon, String label) {
+  // A helper method to display actual images from assets
+  Widget _buildImageBox(String imagePath) {
     return Container(
       width: 130,
       height: 130,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
-        border: Border.all(color: Colors.grey.shade300, width: 2),
       ),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, size: 70, color: Colors.orange[800]),
-            const SizedBox(height: 10),
-            Text(label, style: const TextStyle(color: Colors.black54, fontWeight: FontWeight.bold)),
-          ],
-        ),
+      child: Image.asset(
+        imagePath,
+        fit: BoxFit.contain,
       ),
     );
   }
